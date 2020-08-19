@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+<!-- Java Debugger plugin user's guide -->
+<!-- (C) 2004 Prakash Duggaraju -->
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+<book>
+
+
+<bookinfo>
+    <title>Java Debugger plugin</title>
+
+    <authorgroup>
+        <author>
+            <firstname>Prakash</firstname>
+            <surname>Duggaraju</surname>
+        </author>
+    </authorgroup>
+
+    <legalnotice>
+        <title>Legal Notice</title>
+
+        <para>
+        Permission is granted to copy, distribute and/or modify this
+        document under the terms of the GNU Free Documentation License,
+        Version 1.1 or any later version published by the
+        Free Software Foundation; with no
+        <quote>Invariant Sections</quote>,
+        <quote>Front-Cover Texts</quote> or
+        <quote>Back-Cover Texts</quote>,
+        each as defined in the license.
+        A copy of the license can be found in the file
+        <filename>COPYING.DOC.txt</filename> included with jEdit.
+        </para>
+    </legalnotice>
+</bookinfo>
+
+
+<chapter id="intro">
+    <title>Introduction</title>
+
+    <para>
+     The Java Debugger plugin provides the necessary support to debug java programs
+     from with in the jEdit. You can debug both Java Applications and Applets using 
+     the debugger. The Plugin is based the <ulink url="http://java.sun.com/products/jpda/index.jsp">JPDA</ulink> APIs provided by the Sun.
+    </para>
+
+</chapter>
+
+<chapter id="starting">
+  <title>Getting Started</title>
+    <para>Follow these steps in using the debugger:</para>
+
+    <itemizedlist>
+        <listitem>
+          Use the javacore plugin to select the classpath source for the debugger.  If you are using 'JavaDebugger' itself as the classpath source then set the sourcepath and classpath from the JavaDebugger options menu.
+        </listitem>
+        <listitem>
+          Open the debugger dockable window from the Plugin menu.
+        </listitem>
+        <listitem>
+          Click on the start button from the debugger toolbar on the top.
+        </listitem>
+    </itemizedlist>
+</chapter>
+
+<chapter id="stepping">
+  <title> Stepping through code </title>
+  <para>
+    Use the debugger toolbar on the top to step through the code.
+  </para>
+</chapter>
+
+<chapter id="dockable">
+  <title> Features of Debugger  Dockable </title>
+  <para>
+    The Java Debugger dockable window has the following panels. Note that you can turn off individual panel via the General options of Java Debugger from the Plugin Options menu.
+  </para>
+  <itemizedlist>
+    <listitem>
+      I/O Panel : Displays the standard output and standard error of the program.  Allows you to input values to the standard input of the program
+    </listitem>
+    <listitem>
+      Thread Panel : Displays the threads in the running program as a tree. Once the program is suspended you can select individual stack frames to view the source as well as view the data in that frame.  Further you can select the 'Pop Frame' option to pop out all the stack frame above a given frame.
+    </listitem>
+    <listitem>
+      Breakpoint Panel : Displays the list of breakpoints. You can add/remove breakpoints from here. Further you can enable/disable individual breakpoints.  For source breakpoints you can browse the source code.
+    </listitem>
+    <listitem>
+      Watchonit Panel : Displays the watchpoints. You can add/remove watchpoints from here. Further you can enable/disable individual watchpoints.
+    </listitem>
+    <listitem>
+      Data Panel : Displays the local varaibles and member variables of the current stack frame. Changing the active stack frame via the threads panel updates the data being displayed.  Further for primitive types (e.g: int, String etc.) you can  modify the values
+    </listitem>
+    <listitem>
+      Message Panel : Primarily for debugging purposes. It dispalys the events in the debugger as you run through the program.
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="license">
+    <title>License</title>
+
+    <para>
+    The source code is distributed under the GPL.
+    Please see
+    <ulink url="http://www.fsf.org/copyleft/gpl.html">
+        http://www.fsf.org/copyleft/gpl.html
+    </ulink>
+    </para>
+</chapter>
+
+
+<chapter id="credits">
+    <title>Credits</title>
+
+    <itemizedlist>
+        <listitem>
+        <para>JavaCore plugin.
+        See <ulink url="http://jedit.sourceforge.net">
+        http://jedit.sourceforge.net/
+        </ulink></para>
+        </listitem>
+
+        <listitem>
+        <para>Archive plugin.
+        See <ulink url="http://jedit.sourceforge.net">
+        http://jedit.sourceforge.net/
+        </ulink></para>
+        </listitem>
+
+    </itemizedlist>
+</chapter>
+
+
+<chapter id="feedback">
+    <title>Feedback</title>
+
+    <para>
+    The preferred way to send bug reports is to use the
+    Sourceforge Bug Tracker at
+    <ulink
+    url="http://sourceforge.net/tracker/?atid=565475&amp;group_id=588&amp;func=browse">
+        http://sourceforge.net/tracker/?atid=565475&amp;group_id=588&amp;func=browse
+    </ulink>
+    </para>
+
+    <para>You can also write to:</para>
+    <itemizedlist>
+        <listitem>
+            <para>Prakash Duggaraju<email>duggaraju@gmail.com</email>;</para>
+        </listitem>
+
+        <listitem>
+            <para>or jEdit-users mailing-list
+            <email>jedit-users@lists.sourceforge.net</email>;</para>
+        </listitem>
+
+        <listitem>
+            <para>or jEdit-devel mailing-list
+            <email>jedit-devel@lists.sourceforge.net</email>.</para>
+        </listitem>
+    </itemizedlist>
+</chapter>
+
+</book>

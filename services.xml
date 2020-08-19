@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='windows-1252'?>
+
+<!DOCTYPE SERVICES SYSTEM "services.dtd">
+
+<SERVICES>
+        <SERVICE CLASS="javacore.ClasspathSource" NAME="Java Debugger">
+                new debugger.plugin.DebuggerClasspathSource();
+        </SERVICE>
+</SERVICES>

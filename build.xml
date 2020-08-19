@@ -1,0 +1,117 @@
+<?xml version = '1.0' ?>
+
+<project name="JavaDebuggerPlugin" default="dist" basedir=".">
+
+
+   <!--Set the output directories-->
+   <property file="build.properties"/>
+   <property name="jar.name" value="${install.dir}/JavaDebugger.jar"/>
+   <property name="build.outdir" value="build"/>
+   <property name="javadoc.outdir" value="javadoc"/>
+   <property name="icons.path" value="debugger/icons"/>
+   <property name="doc.xsl"  value="docs/docbook-wrapper.xsl"/>
+
+   <!--Set the classpath-->
+   <path id="classpath">
+      <pathelement location="${jedit.install.dir}/jedit.jar"/>
+      <pathelement location="${install.dir}/JavaCore.jar"/>
+      <pathelement location="${java.home}/../lib/tools.jar"/>
+   </path>
+
+   <!--Set the source path-->
+   <property name="src.dir" value="src"/>
+   <path id="srcpath">
+      <pathelement location="${src.dir}"/>
+   </path>
+
+   <target name="compile" >
+      <mkdir dir="${build.outdir}"/>
+      <!--Compile Java source files-->
+      <javac destdir="${build.outdir}" debug="on" source="1.4">
+         <classpath refid="classpath"/>
+         <src refid="srcpath"/>
+         <include name="**/*.java"/>
+      </javac>
+      
+      <!--Copy image files to output directory-->
+      <mkdir dir="${build.outdir}/${icons.path}"/>
+      <copy todir="${build.outdir}/${icons.path}">
+        <fileset dir="${src.dir}/${icons.path}"/>
+      </copy>
+      <copy file="dockables.xml" todir="${build.outdir}"/>
+      <copy file="actions.xml" todir="${build.outdir}"/>
+      <copy file="services.xml" todir="${build.outdir}"/>
+      <copy file="JavaDebugger.props" todir="${build.outdir}"/>
+      <copy todir="${build.outdir}">
+        <fileset dir="docs"/>
+      </copy>
+   </target>
+
+   <target name="jar" depends="compile">
+     <jar destfile="${jar.name}" basedir="${build.outdir}"/>
+   </target>
+   
+   <target name="javadoc">
+      <mkdir dir="${javadoc.outdir}"/>
+      <!--Create Javadoc-->
+      <javadoc sourcepathref="srcpath" classpathref="classpath" destdir="${javadoc.outdir}" version="false" author="false" additionalparam="-J-Xmx32m">
+         <package name="debugger.*"/>
+      </javadoc>
+   </target>
+   
+  <target name="init_doc">
+     <delete file="${doc.xsl}"/>
+     <echo file="${doc.xsl}"><![CDATA[<?xml version="1.0" ?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:import href="${docbook.xsl}/html/chunk.xsl"/>
+</xsl:stylesheet>]]></echo>
+  </target>
+   
+  <target name="docs-xalan" depends="init_doc">
+    <property name="dtd.location"
+       value="http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"/>
+      <xslt style="docs/users-guide.xsl" in="docs/users-guide.xml"
+        out="${build.outdir}/index.html">
+        <xmlcatalog>
+            <dtd  publicId="-//OASIS//DTD DocBook XML V4.1.2//EN"
+              location="${dtd.location}"/>
+          </xmlcatalog>
+        </xslt>
+     <!-- <style style="docs/users-guide.xsl"
+in="docs/users-guide.xml" destdir="${build.outdir}"
+extension=".html"/> -->
+
+    <style style="docs/users-guide.xsl" in="docs/users-guide.xml" destdir="${build.outdir}" extension=".html"/>
+   </target>
+   
+   <target name="docs-xsltproc" depends="init_doc">
+     <exec executable="xsltproc">
+       <arg value="-o"/>
+       <arg value="${build.outdir}/index.html"/>
+       <arg value="--catalogs"/>
+       <arg value="--nonet"/>
+       <arg value="--novalid"/>
+       <arg value="docs/users-guide.xsl"/>
+       <arg value="docs/users-guide.xml"/>
+     </exec>
+   </target>
+   
+   <target name="doc">
+     <antcall target="docs-xsltproc"/>
+   </target>
+
+   <target name="clean">
+      <!--Delete output directories-->
+      <delete dir="${build.outdir}"/>
+      <delete dir="${javadoc.outdir}"/>
+      <!--<delete file="${jar.name}"/>-->
+      <delete file="${doc.xsl}"/>
+   </target>
+
+   <target name="dist" depends="doc,jar"/>
+
+   <target name="rebuild" depends="clean,jar"/>
+
+   <target name="all" depends="jar"/>
+
+</project>

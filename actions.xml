@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE ACTIONS SYSTEM "actions.dtd">
+<ACTIONS>
+	<ACTION NAME="show-debugger">
+  	<CODE>
+      view.getDockableWindowManager().toggleDockableWindow("java.debugger");
+    </CODE>
+    <IS_SELECTED>
+    	return view.getDockableWindowManager().isDockableWindowVisible("java.debugger");     
+    </IS_SELECTED>
+  </ACTION>
+  
+  <ACTION NAME="start-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).start();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="stop-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).stop();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="suspend-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).suspend();
+    </CODE>
+  </ACTION>
+  
+  <ACTION NAME="resume-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).resume();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="step-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).step();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="stepin-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).stepIn();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="stepout-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).stepOut();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="runto-debugger">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).runToCursor();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="toggle-breakpoint">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).toggleBreakpoint();
+    </CODE>
+  </ACTION>
+
+
+  <ACTION NAME="set-breakpoint">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).setBreakpoint();
+    </CODE>
+  </ACTION>
+
+  <ACTION NAME="clear-breakpoint">
+    <CODE>
+      debugger.JavaDebuggerPlugin.getPlugin().getDebuggerManager(view).clearBreakpoint();
+    </CODE>
+  </ACTION>
+
+</ACTIONS>
+
+ 

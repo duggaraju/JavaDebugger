@@ -1,0 +1,219 @@
+#Debugger Plugin Properties
+plugin.debugger.JavaDebuggerPlugin.name=Java Debugger 
+plugin.debugger.JavaDebuggerPlugin.author=Prakash K Duggaraju
+plugin.debugger.JavaDebuggerPlugin.version=1.5
+
+plugin.debugger.JavaDebuggerPlugin.activate=defer
+plugin.debugger.JavaDebuggerPlugin.menu-item=show-debugger
+plugin.debugger.JavaDebuggerPlugin.option-group=java.debugger.general java.debugger.runtime
+plugin.debugger.JavaDebuggerPlugin.docs=index.html
+
+plugin.debugger.JavaDebuggerPlugin.depend.0=jedit 04.02.00.00
+plugin.debugger.JavaDebuggerPlugin.depend.1=jdk 1.3
+plugin.debugger.JavaDebuggerPlugin.depend.2=plugin archive.ArchivePlugin 0.4
+plugin.debugger.JavaDebuggerPlugin.depend.3=plugin javacore.JavaCorePlugin 0.7
+
+options.java.debugger.general.label=General Options
+options.java.debugger.general.code=new debugger.options.GeneralDebuggerOptions();
+
+options.java.debugger.runtime.label=Runtime Options
+options.java.debugger.runtime.code=new debugger.options.JavaDebuggerOptions();
+
+#Dockable Debugger window
+java.debugger.label=Java Debugger
+java.debugger.title=Java Debugger
+
+jdebugger-popup=toggle-breakpoint - 
+
+show-debugger.label=Java Debugger
+
+start-debugger.label=Start Debugging the program
+start-debugger.icon=start.gif
+start-debugger.shortcut=ctrl+F5
+
+resume-debugger.label=Continue Execution
+resume-debugger.icon=continue.gif
+resume-debugger.shortcut=F5
+
+suspend-debugger.label=Suspend Execution
+suspend-debugger.icon=interrupt.gif
+
+stop-debugger.label=Stop Debugger
+stop-debugger.icon=stop.gif
+
+step-debugger.label=Step Over
+step-debugger.icon=stepover.gif
+step-debugger.shortcut=F10
+
+stepin-debugger.label=Step In
+stepin-debugger.icon=stepin.gif
+stepin-debugger.shortcut=F11
+
+stepout-debugger.label=Step Out
+stepout-debugger.icon=stepup.gif
+stepout-debugger.shortcut=shift+F11
+
+runto-debugger.label=Run to cursor
+runto-debugger.icon=runto.gif
+runto-debugger.shortcut=ctrl+F10
+
+toggle-breakpoint.label=Toggle Breakpoint
+toggle-breakpoint.icon=break.gif
+toggle-breakpoint.shortcut=F9
+
+set-breakpoint.label=Set Breakpoint
+set-breakpoint.icon=break.gif
+set-breakpoint.shortcut=F9
+
+clear-breakpoint.icon=nobreak.gif
+clear-breakpoint.label=Clear Breakpoint
+clear-breakpoint.shortcut=shift+F9
+
+ok.label = OK
+cancel.label = Cancel
+browse.label = Browse...
+
+
+jdebugger-toolbar=start-debugger resume-debugger suspend-debugger stop-debugger - \
+                  step-debugger stepin-debugger stepout-debugger runto-debugger - \
+                  set-breakpoint clear-breakpoint  
+
+options.JavaDebugger.label=Java Debugger
+
+options.jdebugger.vmProperties=VM Properties
+options.jdebugger.vmLabel=Virtual Machine:
+options.jdebugger.vmName=java
+
+options.jdebugger.vmArgsLabel=Arguments to VM:
+options.jdebugger.vmArgs=
+
+options.jdebugger.programProperties=Program Properties
+
+options.jdebugger.programTypeLabel=Program Type
+options.jdebugger.programType=application
+
+options.jdebugger.classLabel=Main Class:
+options.jdebugger.className=Main 
+options.jdebugger.appletClass=sun.applet.AppletViewer
+
+options.jdebugger.classArgsLabel=Arguments to Class:
+options.jdebugger.classArgs=
+
+options.jdebugger.pathsLabel= Paths
+options.jdebugger.cpLabel=ClassPath
+options.jdebugger.classpath=
+
+options.jdebugger.spLabel=SourcePath
+options.jdebugger.sourcepath=
+
+options.jdebugger.addLabel=Add
+options.jdebugger.addDirLabel=Add Directory
+options.jdebugger.addArchiveLabel=Add Archive
+options.jdebugger.removeLabel=Remove
+
+#Resources for the Debugger Frame
+
+#Popup menu for IO panel
+io.clear.label=Clear Text
+
+#Popup menu for breakpoints panel
+enableall.label=Enable All
+disableall.label=Disable All
+disablebp.label=Disable Breakpoint
+enablebp.label=Enable Breakpoint
+removebp.label=Remove Breakpoint
+source.label=Go to Source
+newbp.label=New Breakpoint...
+
+#thread panel menu
+source-frame.label=Go to source
+popup-frame.label=Popup stack frames
+select-frame.label=Select thread
+suspend-thread.label=Suspend thread
+resume-thread.label=Resume thread
+stop-thread.label=Stop thread
+
+#popup menu for events panenl.
+events.clear.label=Clear Text
+
+#popup for watchpoints panel
+addwatch.label=Add Watch...
+addwatch.tooltip=Add a  Watch 
+addwatch.action=addwatch
+
+clearwatch.label=Remove Watch 
+clearwatch.tooltip=Remove a Watch
+clearwatch.action=clearwatch
+
+enablewatch.label=Enable Watch
+disablewatch.label=Disable Watch
+
+io.name=Output
+io.icon=io.gif
+io.tooltip=Program I/O
+io.popup=io.clear
+
+threads.name=Threads
+threads.icon=threads.gif
+threads.tooltip=Active Threads in the program
+thread.popup= resume-thread stop-thread
+stack.popup=select-frame source-frame popup-frame
+
+thread.column1=Frame
+thread.column2=Class
+thread.column3=Method
+
+classes.name=Classes
+classes.icon=classes.gif
+classes.tooltip=Classes Loaded by the Program
+
+breakpoints.name=Breakpoints
+breakpoints.icon=breakpoints.gif
+breakpoints.tooltip=Breakpoints
+breakpoints.popup=source enablebp removebp - enableall disableall - newbp
+
+watches.name=Watch
+watches.icon=watch.gif
+watches.tooltip=Watch Points 
+watches.popup=addwatch removewatch enablewatch
+
+data.name=Data
+data.icon=data.jpg
+data.tootip=Examine Data
+data.popup=source watch
+
+data.column1=Name
+data.column2=Type
+data.column3=Value
+
+events.name=Messages
+events.icon=events.gif
+events.tooltip=Events happening in the debugger
+events.popup=events.clear
+
+
+#breakpoint UI
+newbp.title=New Breakpoint...
+newbp.type=Type
+newbp.invalidbp.title=Error
+newbp.invalidbp.message=Invalid Breakpoint!
+
+#watchpoint UI
+newwatch.title=New Watch...
+
+
+#icons used in the UI
+thread.icon=thread.jpg
+threadgroup.icon=threadgroup.jpg
+stack.icon=stack.gif
+primitive.icon=primitive.gif
+object.icon=object.gif
+break.icon=bp.gif
+activebreak.icon=activebreak.jpg
+disabledbreak.icon=disabledbreak.jpg
+method.icon=method.gif
+field.icon=variable.gif
+constructor.icon=method.gif
+variable.icon=
+class.icon=class.gif
+package.icon=package.jpg
